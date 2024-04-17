@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Hi! Thanks for submitting an issue. Tell me one fact about yourself that makes you feel happy."
+        pr-message: "Thanks for submitting a pull-request! :D Have you given yourself a pat on the back today? You deserve it."
